@@ -9,4 +9,4 @@ I am taking STATS 220 because I feel like it would be useful for my degree as I 
 
 I am interested in learning about the R programming language which I got to slightly dip my toes in stats 201 when I took it this summer
 
-A meme that captures how I currently feel about my university studies is ![This is fine](https://tenor.com/en-GB/view/this-is-fine-gif-24177057)
+A meme that captures how I currently feel about my university studies is ![This is fine](https://media1.tenor.com/m/MYZgsN2TDJAAAAAd/this-is.gif)
