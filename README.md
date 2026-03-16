@@ -1,6 +1,6 @@
-# stats220
+# Stats220
 
-## This is my repo for STATS 220. 
+## This is my repo for *STATS 220*. 
 
 ### A little about me:
 
@@ -11,7 +11,7 @@
 
 1. I am interested in learning about the R programming language which I got to slightly dip my toes in stats 201 when I took it this summer
 2. I wish to learn more programming principles or techniques to improve my problem solving skills and think more creatively
-3. Here is a website I made of my current portfolio https://deleteduser9.vercel.app/ 
+3. Here is a **website** I made of my current portfolio https://deleteduser9.vercel.app/ 
 
 ### My reaction to the workload I have this semester:
 ![Oh My God](https://media1.tenor.com/m/NU4EH3tJVDQAAAAd/oh-my-god-bruh-jjk.gif)
