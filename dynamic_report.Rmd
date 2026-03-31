@@ -12,16 +12,6 @@ library(tidyverse)
 ```{css}
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Press+Start+2P&display=swap');
 
-body{
-background-color: #000000;
-opacity: 0;
-animation-name: fadeIn;
-animation-duration: 2s;
-animation-timing-function: ease-in;  
-animation-fill-mode: forwards;
-color: #ffffff
-
-}
 #observing-patterns-in-my-youtube-shorts-feed img {
   max-width: 100%;
   border-radius: 12px;
@@ -31,10 +21,7 @@ color: #ffffff
   flex-direction: column;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
-@keyframes fadeIn {
-0% {opacity: 0;}
-100% {opacity: 1;}
-}
+
 
 p{
 margin-left: 10px;
