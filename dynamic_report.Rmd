@@ -1,0 +1,115 @@
+---
+title: My dynamic report
+output: html_fragment
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+library(tidyverse)
+
+```
+
+```{css}
+body {
+  font-family: Arial, sans-serif;
+}
+
+#observing-patterns-in-my-youtube-shorts-feed img {
+  max-width: 100%;
+  border-radius: 12px;
+  display: block;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  
+}
+
+```
+
+## Observing patterns in my Youtube Shorts feed
+
+This report tracks the Youtube shorts that appeared on my feed overtime. 
+Each row in this dataset represents one observed short. This data includes numeric variables such as the length of the short and the likelyhood I would watch the creator again. I also have categorical variables such as the content category, AI voice usage and whether or not the creator's face is visible. 
+
+```{r}
+
+logged_data <- read_csv(
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vSsLYiBG-Z4SvZwNfP-h2ET2zyMOv97CtmxCt-sL9JdrhAK6YQ1NuA8sZbo9Pt4_80zQ6Fs1GvOpGGn/pub?output=csv"
+)
+
+latest_data <- logged_data %>%
+  rename(
+    timestamp = 1,
+    short_length = 2,
+    face_visible = 3,
+    category = 4,
+    ai_voice = 5,
+    watched_twice = 6,
+    seen_creator_before = 7,
+    watch_creator_again = 8
+  )
+
+category_data <- latest_data %>%
+  separate_rows(category, sep = ",\\s*")
+
+num_shorts <- latest_data$short_length %>%
+  length()
+
+mean_length <- latest_data$short_length %>%
+  mean(na.rm = TRUE) %>%
+  round(1)
+
+mean_watch_again <- latest_data$watch_creator_again %>%
+  mean(na.rm = TRUE) %>%
+  round(1)
+
+max_length <- latest_data$short_length %>%
+  max(na.rm = TRUE)
+
+category_data %>%
+  ggplot() +
+  geom_bar(aes(y = category)) +
+  labs(
+    title = "Categories of observed YouTube Shorts",
+    x = "Count",
+    y = "Category"
+  )
+
+latest_data %>%
+  ggplot() +
+  geom_bar(aes(x = ai_voice)) +
+  labs(
+    title = "Use of AI voice in observed YouTube Shorts",
+    x = "AI voice",
+    y = "Count"
+  )
+
+
+latest_data %>%
+  group_by(ai_voice) %>%
+  summarise(
+    mean_watch_again = mean(watch_creator_again, na.rm = TRUE)
+  ) %>%
+  ggplot() +
+  geom_col(aes(x = ai_voice, y = mean_watch_again)) +
+  labs(
+    title = "Average watch-again rating by AI voice use",
+    x = "AI voice",
+    y = "Mean watch-again rating"
+  )
+
+```
+
+I recorded several pieces of information while analysing the data.
+
+- I observed `r num_shorts` YouTube Shorts in total.
+- The average length of the Shorts I watched was `r mean_length` seconds, with `r max_length` seconds being the longest length recorded.
+- The average time I was likely to watch this creator again was `r mean_watch_again` out of 5
+
+The last graph shows the likelyhood I would watch the creator again if there was an AI voice. 
+
+
+
+
+
