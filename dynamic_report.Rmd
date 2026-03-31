@@ -22,24 +22,6 @@ animation-fill-mode: forwards;
 color: #ffffff
 
 }
-
-ul {
-  display: inline-block;
-  text-align: left;
-  margin: 0 auto;
-}
-
-.intro {
-max-width: 1000px;
-margin: 1.5rem auto;
-padding: 1.2rem 1.5rem;
-border-radius: 14px;
-line-height: 1.7;
-text-align: left;
-
-}
-
-
 #observing-patterns-in-my-youtube-shorts-feed img {
   max-width: 100%;
   border-radius: 12px;
@@ -48,20 +30,15 @@ text-align: left;
   display: flex;
   flex-direction: column;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  
-}
-
-
-p{
-color: #ffffff;
-font-size: 15px;
-
-
-
 }
 @keyframes fadeIn {
 0% {opacity: 0;}
 100% {opacity: 1;}
+}
+
+p{
+margin-left: 10px;
+
 }
 
 h1, h2{
@@ -77,14 +54,21 @@ font-size: 25px;
 
 }
 
+h3{
+max-width: 1000px;
+margin: 1.5rem auto;
+padding: 1.2rem 1.5rem;
+border-radius: 14px;
+line-height: 1.7;
+text-align: left;
+}
+
 ```
 
 ## Observing patterns in my Youtube Shorts feed
 
-<div class = "intro">
-
-This report tracks the Youtube shorts that appeared on my feed overtime. 
-Each row in this dataset represents one observed short. This data includes numeric variables such as the length of the short and the likelyhood I would watch the creator again. I also have categorical variables such as the content category, AI voice usage and whether or not the creator's face is visible. </div>
+### This report tracks the Youtube shorts that appeared on my feed overtime. 
+### Each row in this dataset represents one observed short. This data includes numeric variables such as the length of the short and the likelyhood I would watch the creator again. I also have categorical variables such as the content category, AI voice usage and whether or not the creator's face is visible.
 
 ```{r}
 
