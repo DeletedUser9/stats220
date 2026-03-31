@@ -10,9 +10,35 @@ library(tidyverse)
 ```
 
 ```{css}
-body {
-  font-family: Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Press+Start+2P&display=swap');
+
+body{
+background-color: #000000;
+opacity: 0;
+animation-name: fadeIn;
+animation-duration: 2s;
+animation-timing-function: ease-in;  
+animation-fill-mode: forwards;
+color: #ffffff
+
 }
+
+ul {
+  display: inline-block;
+  text-align: left;
+  margin: 0 auto;
+}
+
+.intro {
+max-width: 1000px;
+margin: 1.5rem auto;
+padding: 1.2rem 1.5rem;
+border-radius: 14px;
+line-height: 1.7;
+text-align: left;
+
+}
+
 
 #observing-patterns-in-my-youtube-shorts-feed img {
   max-width: 100%;
@@ -25,12 +51,40 @@ body {
   
 }
 
+
+p{
+color: #ffffff;
+font-size: 15px;
+
+
+
+}
+@keyframes fadeIn {
+0% {opacity: 0;}
+100% {opacity: 1;}
+}
+
+h1, h2{
+font-family: "Press Start 2P";
+font-weight: 400;
+font-style: normal;
+color: #2bb597;
+
+}
+
+h2{
+font-size: 25px;
+
+}
+
 ```
 
 ## Observing patterns in my Youtube Shorts feed
 
+<div class = "intro">
+
 This report tracks the Youtube shorts that appeared on my feed overtime. 
-Each row in this dataset represents one observed short. This data includes numeric variables such as the length of the short and the likelyhood I would watch the creator again. I also have categorical variables such as the content category, AI voice usage and whether or not the creator's face is visible. 
+Each row in this dataset represents one observed short. This data includes numeric variables such as the length of the short and the likelyhood I would watch the creator again. I also have categorical variables such as the content category, AI voice usage and whether or not the creator's face is visible. </div>
 
 ```{r}
 
