@@ -1,0 +1,119 @@
+---
+title: What does my YouTube Shorts feed show me?
+output: html_document
+---
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+```
+
+```{js}
+$(function() {
+  $(".level2").css('visibility', 'hidden');
+  $(".level2").first().css('visibility', 'visible');
+  $(".container-fluid").height($(".container-fluid").height() + 300);
+  $(window).on('scroll', function() {
+    $('h2').each(function() {
+      var h2Top = $(this).offset().top - $(window).scrollTop();
+      var windowHeight = $(window).height();
+      if (h2Top >= 0 && h2Top <= windowHeight / 2) {
+        $(this).parent('div').css('visibility', 'visible');
+      } else if (h2Top > windowHeight / 2) {
+        $(this).parent('div').css('visibility', 'hidden');
+      }
+    });
+  });
+})
+```
+
+```{css, echo=FALSE}
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Press+Start+2P&display=swap');
+
+body {
+  background-color: #0f0f0f;
+  color: #f5f5f5;
+  font-family: Arial, sans-serif;
+}
+
+.container-fluid {
+  max-width: 950px;
+}
+
+h1.title {
+  font-family: "Press Start 2P", cursive;
+  color: #2bb597;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  font-family: "Bebas Neue", sans-serif;
+  color: #2bb597;
+  font-size: 3.2rem;
+  letter-spacing: 2px;
+  margin-top: 4rem;
+}
+
+p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  max-width: 850px;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 16px;
+  display: block;
+  margin: 2rem auto;
+  box-shadow: 0 4px 20px rgba(43, 181, 151, 0.35);
+}
+
+.level2 {
+  padding: 2rem;
+  margin-bottom: 4rem;
+  border-left: 4px solid #2bb597;
+  background-color: rgba(255, 255, 255, 0.04);
+  border-radius: 14px;
+}
+
+.figcaption {
+  display: none;
+}
+```
+
+## What am I observing?
+
+I observed patterns in my YouTube Shorts feed over time. Each row in my data represents one YouTube Short that appeared while I was logging my feed.
+
+I recorded features such as the category of the Short, whether a face was visible, whether the Short used an AI voice, whether I had seen the creator before, and how likely I would be to watch the creator again. This helped me explore not just what my feed showed me, but also which features seemed connected to my interest in the content.
+
+## What categories appear most often?
+
+![A horizontal bar chart showing the most common categories in my observed YouTube Shorts feed. The chart compares how many Shorts appeared in each content category.](plot1.png)
+
+The first visualisation shows which categories appeared most often in my YouTube Shorts feed.
+
+This gives an overview of the type of content the algorithm was showing me during my observations. Instead of looking at each Short one by one, this plot summarises the categories so the main pattern in my feed is easier to see. I noticed that a lot of my feed were weird or informative content for example cool things that happend in peoples lives or informative gaming guides. 
+
+## Does AI voice affect my interest?
+
+![A boxplot with jittered points showing watch-again ratings for Shorts with and without AI voice. Each point represents one observed Short.](plot2.png)
+
+The second visualisation explores whether AI voice is connected to how likely I would be to watch the creator again.
+
+This is useful because AI voices are common in short-form video content. We all know how shunned AI is when it comes to the video creation industry, I wanted to check how many times I encountered an AI video and how that whether I would watch the video again. The box plot graph shows I am more likely to watch the creator again if there was a human voice rather than AI. 
+
+## When did I collect my observations?
+
+![A line chart showing how many YouTube Shorts observations were recorded on each date.](plot3.png)
+
+The third visualisation uses the timestamp from my Google Form responses to show when I collected my observations.
+
+This gives context to the data collection process. Since the observations were collected over time, it showed how often I would go and watch youtube shorts and when I logged the data.
+
+## What does this show about my feed?
+
+Overall, these visualisations suggest that my YouTube Shorts feed is shaped by a mix of content category, video style, and creator presentation.
+The category plot shows what kind of content appeared most often, the AI voice plot explores whether a specific video feature affected my interest, and the timestamp plot shows when the observations were collected. Together, these plots turn my personal feed observations into a clearer visual story about what I was being shown and how I responded to it.
